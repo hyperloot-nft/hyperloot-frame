@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
 	console.log(query);
 	const body = await readBody(event);
 	console.log(body);
-	const buttonIndex = parseInt(body.buttonIndex);
+	const buttonIndex = parseInt(body.untrustedData.buttonIndex);
 	let tokenID = 1;
 	let imageType = 'nft';
 
