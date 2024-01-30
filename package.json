@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-	"vercel-build": "SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm_config_arch=x64 npm_config_platform=linux npm install sharp && nuxt build"
+	"vercel-build": "npm uninstall sharp && SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm_config_arch=x64 npm_config_platform=linux npm install sharp && nuxt build"
   },
   "devDependencies": {
     "nuxt": "^3.9.3",
