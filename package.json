@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "vercel-build": "npm uninstall sharp && SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm_config_arch=x64 npm_config_platform=linux npm install sharp && nuxt build"
+    "vercel-build": "npm uninstall sharp && SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm_config_arch=x64 npm_config_platform=linux npm install sharp@0.32.6 && nuxt build"
   },
   "devDependencies": {
     "nuxt": "^3.9.3",
@@ -19,6 +19,6 @@
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
     "pinia": "^2.1.7",
-	"sharp": "0.32.6"
+    "sharp": "0.32.6"
   }
 }
