@@ -4,7 +4,9 @@ export default defineEventHandler(async (event) => {
 	const query = getQuery(event);
 	console.log('api/preview.js');
 	console.log(query);
-	const buttonIndex = parseInt(query.buttonIndex);
+	const body = await readBody(event);
+	console.log(body);
+	const buttonIndex = parseInt(body.buttonIndex);
 	let tokenID = 1;
 	let imageType = 'nft';
 
