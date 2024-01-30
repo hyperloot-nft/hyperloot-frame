@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
 		<html>
 		<head>
 			<meta property="fc:frame" content="vNext" />
-			<meta property="fc:frame:image" content="https://hyperloot-frame-preview-test.vercel.app/api/preview-image?type=${imageType}&token=${tokenID}.jpg" />
+			<meta property="fc:frame:image" content="https://hyperloot-frame-preview-test.vercel.app/api/preview-image?type=${imageType}&token=${tokenID}" />
 			<meta property="fc:frame:button:1" content="⬅️ Previous" />
 			<meta property="fc:frame:button:2" content="➡️ Next" />
 			<meta property="fc:frame:button:3" content="🎲 Random" />
