@@ -1,5 +1,3 @@
-import sharp from 'sharp';
-
 export default defineEventHandler(async (event) => {
 	const query = getQuery(event);
 	console.log('api/preview.js');
@@ -27,7 +25,7 @@ export default defineEventHandler(async (event) => {
 		<html>
 		<head>
 			<meta property="fc:frame" content="vNext" />
-			<meta property="fc:frame:image" content="http://images.hyperlootproject.com/${imageType}/${tokenID}.jpg" />
+			<meta property="fc:frame:image" content="https://hyperloot-frame-preview-test.vercel.app/api/preview-image?type=${imageType}&token=${tokenID}.jpg" />
 			<meta property="fc:frame:button:1" content="⬅️ Previous" />
 			<meta property="fc:frame:button:2" content="➡️ Next" />
 			<meta property="fc:frame:button:3" content="🎲 Random" />
@@ -40,53 +38,4 @@ export default defineEventHandler(async (event) => {
 			headers: { 'Content-Type': 'text/html' },
 		}
     );
-
-	// const imgResponse = await fetch(`http://images.hyperlootproject.com/${imageType}/${tokenID}.jpg`);
-	// if (!imgResponse.ok) {
-	// 	return new Response("Image not found", { status: 404 });
-    // }
-
-	// const imgBuffer = await imgResponse.arrayBuffer();
-	// const response = await sharp(Buffer.from(imgBuffer)).toBuffer();
-
-	// return new Response(response, {
-	// 		status: 200,
-	// 		headers: { 'Content-Type': 'image/png' }
-	// 	}
-    // );
-
-	// return new Response({
-	// 	image: `http://images.hyperlootproject.com/${imageType}/${tokenID}.jpg`,
-	// 	post_url: 'api/preview',
-	// 	buttons: ['Prev', 'Next', 'Random', 'Toggle'],
-	// }, {
-	// 	status: 200,
-	// 	headers: {
-	// 	  'Content-Type': 'image/png'
-	// 	}
-	//   }); 
-
-
-    // const html = `
-    //     <html>
-    //     <head>
-    //     <style>
-    //     </style>
-    //     </head>
-    //     <body>
-    //     <fc-frame>
-	// 		<div style="width:100%; height:100%; background-color:#000;">
-	// 			<img v-if="tokenID" src="http://images.hyperlootproject.com/${imageType}/${tokenID}.jpg" style="height: 100%; width: 100%; object-fit: contain">
-	// 		</div>
-    //     </fc-frame>
-    //     </body>
-    // </html>
-    // `
-
-    // return new Response(html,
-    //     {
-    //         status: 200,
-    //         headers: { 'Content-Type': 'text/html' },
-    //     }
-    // );
 });

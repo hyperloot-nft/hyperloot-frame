@@ -19,6 +19,8 @@
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
     "pinia": "^2.1.7",
-    "sharp": "0.32.6"
+    "satori": "^0.10.13",
+    "satori-html": "^0.3.2",
+    "sharp": "^0.33.2"
   }
 }
