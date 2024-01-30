@@ -7,8 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare && npm install sharp --platform=linux --arch=x64",
-    "vercel-build": "nuxt build"
+    "postinstall": "nuxt prepare",
+	"vercel-build": "npm install sharp && nuxt build"
   },
   "devDependencies": {
     "nuxt": "^3.9.3",
