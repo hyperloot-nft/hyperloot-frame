@@ -1,4 +1,6 @@
-export default defineEventHandler((event) => {
+import sharp from 'sharp';
+
+export default defineEventHandler(async (event) => {
 	const query = getQuery(event);
 	console.log('api/preview.js');
 	console.log(query);
@@ -18,14 +20,28 @@ export default defineEventHandler((event) => {
 		imageType = 'character';
 	}
 
-	return new Response({
-		image: `http://images.hyperlootproject.com/${imageType}/${tokenID}.jpg`,
-		post_url: 'api/preview',
-		buttons: ['Prev', 'Next', 'Random', 'Toggle'],
-	}, {
-		status: 200,
-		headers: {
-		  'Content-Type': 'image/png'
+	const imgResponse = await fetch(`http://images.hyperlootproject.com/${imageType}/${tokenID}.jpg`);
+	if (!imgResponse.ok) {
+		return new Response("Image not found", { status: 404 });
+    }
+
+	const imgBuffer = await imgResponse.arrayBuffer();
+	const response = await sharp(Buffer.from(imgBuffer)).toBuffer();
+
+	return new Response(response, {
+			status: 200,
+			headers: { 'Content-Type': 'image/png' }
 		}
-	  }); 
+    );
+
+	// return new Response({
+	// 	image: `http://images.hyperlootproject.com/${imageType}/${tokenID}.jpg`,
+	// 	post_url: 'api/preview',
+	// 	buttons: ['Prev', 'Next', 'Random', 'Toggle'],
+	// }, {
+	// 	status: 200,
+	// 	headers: {
+	// 	  'Content-Type': 'image/png'
+	// 	}
+	//   }); 
 });
