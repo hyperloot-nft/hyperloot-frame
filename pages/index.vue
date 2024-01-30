@@ -38,7 +38,7 @@ useHead({
 		{ property: 'fc:frame:button:2', content: '➡️ Next' },
 		{ property: 'fc:frame:button:3', content: '🎲 Random' },
 		{ property: 'fc:frame:button:4', content: '🎨 2D/Pixel' },
-		{ property: 'fc:frame:post_url', content: 'https://hyperloot-frame-preview.vercel.app/api/preview' },
+		{ property: 'fc:frame:post_url', content: 'https://hyperloot-frame-preview-test.vercel.app/api/preview' },
 	],
 });
 
