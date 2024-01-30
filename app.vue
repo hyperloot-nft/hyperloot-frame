@@ -1,5 +1,6 @@
 <template>
   <div>
-    HyperLoot Farcaster Frame
+    HyperLoot Frame
+	<NuxtPage />
   </div>
 </template>
