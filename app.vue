@@ -10,8 +10,8 @@ useHead({
 		{ property: 'og:image', content: 'https://hyperlootproject.com/hyperloot-og-image-twitter.jpg' },
 		{ property: 'fc:frame', content: 'vNext' },
 		{ property: 'fc:frame:image', content: 'https://hyperlootproject.com/hyperloot-og-image-twitter.jpg' },
-		{ property: 'fc:frame:button:3', content: '🎲 Random' },
-		{ property: 'fc:frame:post_url', content: `${config.public.domain}/api/preview` },
+		{ property: 'fc:frame:button:1', content: '🎲 Random' },
+		{ property: 'fc:frame:post_url', content: `${config.public.domain}/api/preview?type=nft` },
 	],
 });
 
