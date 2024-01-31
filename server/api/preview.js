@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
 		tokenID = parseInt(query.id);
 	}
 
-	if (query.imageType) {
+	if (query.type) {
 		imageType = query.type
 	}
 
