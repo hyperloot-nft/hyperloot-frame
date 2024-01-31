@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
 
 	const frameImage = html`
 		<div style="display:flex; width:100%; height:100%; background-color:#000;">
-			<img src="http://images.hyperlootproject.com/${imageType}/${tokenID}.jpg" 
+			<img src="http://images.hyperlootproject.com/${imageType}/${tokenID}.${fileType}"
      			style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: blur(40px) brightness(80%);">
 			<img src="http://images.hyperlootproject.com/${imageType}/${tokenID}.${fileType}"
 				style="height: 100%; width: 100%; object-fit: contain">
