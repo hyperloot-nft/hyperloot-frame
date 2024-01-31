@@ -1,11 +1,10 @@
 export default defineEventHandler(async (event) => {
 	const config = useRuntimeConfig(event);
 	const query = getQuery(event);
-	console.log('api/preview.js');
-	console.log(query);
+
 	const body = await readBody(event);
-	console.log(body);
 	const buttonIndex = parseInt(body.untrustedData.buttonIndex);
+
 	let tokenID = -1;
 	let imageType = 'nft';
 
@@ -72,8 +71,7 @@ export default defineEventHandler(async (event) => {
 		</head>
 		</html>
 	`, {
-			status: 200,
-			headers: { 'Content-Type': 'text/html' },
-		}
-    );
+		status: 200,
+		headers: { 'Content-Type': 'text/html' },
+	});
 });

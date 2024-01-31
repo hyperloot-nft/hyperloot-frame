@@ -5,13 +5,13 @@ import { html } from "satori-html";
 export default defineEventHandler(async (event) => {
 	const config = useRuntimeConfig(event);
 	const query = getQuery(event);
-	console.log('api/preview-image.js');
-	console.log(query);
+
 	const tokenID = query.id;
 	const imageType = query.type;
 
 	let fileType = 'png';
 	let backgroundHtml = '';
+
 	if (imageType === 'nft') {
 		fileType = 'jpg';
 		backgroundHtml = `<img src="http://images.hyperlootproject.com/${imageType}/${tokenID}.${fileType}"
@@ -47,23 +47,21 @@ export default defineEventHandler(async (event) => {
 	const svg = await satori(frameImage, {
 		width: 1200,
 		height: 600,
-		fonts: [
-			{
+		fonts: [{
 				name: 'BluuNext-Bold',
 				data: fontData,
-				weight: 400,
+				weight: 700,
 				style: 'Bold',
 			},
 		],
 	});
 	const svgBuffer = Buffer.from(svg);
-    const png = sharp(svgBuffer).png();
-    const response = await png.toBuffer();
+	const png = sharp(svgBuffer).png();
+	const response = await png.toBuffer();
 
-	return new Response(response,
-        {
-            status: 200,
-            headers: { 'Content-Type': 'image/png' }
-        }
-    );
+	return new Response(response, {
+			status: 200,
+			headers: { 'Content-Type': 'image/png' }
+		}
+	);
 });
