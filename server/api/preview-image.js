@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
 	</div>`;
 	const svg = await satori(frameImage, {
 		width: 1200,
-		height: 800,
+		height: 600,
 		fonts: [],
 	});
 	const svgBuffer = Buffer.from(svg);
