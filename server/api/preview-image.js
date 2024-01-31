@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
 	const query = getQuery(event);
 	console.log('api/preview-image.js');
 	console.log(query);
-	const tokenID = query.token;
+	const tokenID = query.id;
 	const imageType = query.type;
 
 	let fileType = 'jpg';

@@ -8,8 +8,8 @@ export default defineEventHandler(async (event) => {
 	let tokenID = -1;
 	let imageType = 'nft';
 
-	if (query.tokenID) {
-		tokenID = query.tokenID
+	if (query.id) {
+		tokenID = query.id;
 	}
 
 	if (query.imageType) {
@@ -49,6 +49,10 @@ export default defineEventHandler(async (event) => {
 		} else {
 			imageType = 'pfp';
 		}
+
+		if (tokenIndex === -1) {
+			tokenID = 1;
+		}
 	}
 
 	return new Response(`
@@ -56,12 +60,12 @@ export default defineEventHandler(async (event) => {
 		<html>
 		<head>
 			<meta property="fc:frame" content="vNext" />
-			<meta property="fc:frame:image" content="https://hyperloot-frame-preview-test.vercel.app/api/preview-image?type=${imageType}&token=${tokenID}" />
+			<meta property="fc:frame:image" content="https://hyperloot-frame-preview-test.vercel.app/api/preview-image?type=${imageType}&id=${tokenID}" />
 			<meta property="fc:frame:button:1" content="⬅️ Previous" />
 			<meta property="fc:frame:button:2" content="➡️ Next" />
 			<meta property="fc:frame:button:3" content="🎲 Random" />
 			<meta property="fc:frame:button:4" content="🎨 2D/Pixel" />
-			<meta property="fc:post_url" content="https://hyperloot-frame-preview-test.vercel.app/api/preview?type=${imageType}&token=${tokenID}" />
+			<meta property="fc:post_url" content="https://hyperloot-frame-preview-test.vercel.app/api/preview?type=${imageType}&id=${tokenID}" />
 		</head>
 		</html>
 	`, {
