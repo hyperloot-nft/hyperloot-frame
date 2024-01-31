@@ -2,8 +2,11 @@
 const config = useRuntimeConfig();
 
 useHead({
+	title: 'HyperLoot Frame',
+	description: 'HyperLoot: Farcaster | Warpcast Frame',
 	meta: [
-		{ property: 'og:title', content: 'HyperLoot Previewer' },
+		{ property: 'og:title', content: 'HyperLoot Frame' },
+		{ property: 'og:description', content: 'HyperLoot: Farcaster | Warpcast Frame' },
 		{ property: 'og:image', content: 'https://hyperlootproject.com/hyperloot-og-image-twitter.jpg' },
 		{ property: 'fc:frame', content: 'vNext' },
 		{ property: 'fc:frame:image', content: 'https://hyperlootproject.com/hyperloot-og-image-twitter.jpg' },
