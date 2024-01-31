@@ -3,6 +3,7 @@ import satori from 'satori';
 import { html } from "satori-html";
 
 export default defineEventHandler(async (event) => {
+	const config = useRuntimeConfig(event);
 	const query = getQuery(event);
 	console.log('api/preview-image.js');
 	console.log(query);
@@ -21,11 +22,11 @@ export default defineEventHandler(async (event) => {
 			<img src="http://images.hyperlootproject.com/${imageType}/${tokenID}.${fileType}"
 				style="height: 100%; width: 100%; object-fit: contain">
 			<div style="z-index:100; position:absolute; top:20px; right:40px; font-family:'BluuNext-Bold'; font-size: 24px; color:#F3BA14;">#${tokenID}</div>
-			<img src="https://hyperloot-frame-preview-test.vercel.app/hyperloot-icon-transparent.png"
+			<img src="${config.public.domain}/hyperloot-icon-transparent.png"
 				style="z-index:100; position:absolute; top:22px; left:30px; width:5%;">
 		</div>`;
 
-	const fontResponse = await fetch('https://hyperloot-frame-preview-test.vercel.app/BluuNext-Bold.otf');
+	const fontResponse = await fetch(`${config.public.domain}/BluuNext-Bold.otf`);
 	const fontData = await fontResponse.arrayBuffer();
 
 	const svg = await satori(frameImage, {

@@ -2,5 +2,10 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: ['nuxt-og-image', '@pinia/nuxt'],
+	runtimeConfig: {
+		public: {
+			domain: '',
+		},
+	},
 });
   
