@@ -1,4 +1,5 @@
 export default defineEventHandler(async (event) => {
+	const config = useRuntimeConfig(event);
 	const query = getQuery(event);
 	console.log('api/preview.js');
 	console.log(query);
@@ -45,9 +46,11 @@ export default defineEventHandler(async (event) => {
 	if (buttonIndex === 4) {
 		// Button - toggle image type
 		if (imageType === 'pfp') {
-			imageType = 'nft';
-		} else {
+			imageType = 'pixel';
+		} else if (imageType === 'nft') {
 			imageType = 'pfp';
+		} else if (imageType === 'pixel') {
+			imageType = 'nft';
 		}
 
 		if (tokenIndex === -1) {
@@ -60,12 +63,12 @@ export default defineEventHandler(async (event) => {
 		<html>
 		<head>
 			<meta property="fc:frame" content="vNext" />
-			<meta property="fc:frame:image" content="https://hyperloot-frame-preview-test.vercel.app/api/preview-image?type=${imageType}&id=${tokenID}" />
+			<meta property="fc:frame:image" content="${config.public.domain}/api/preview-image?type=${imageType}&id=${tokenID}" />
 			<meta property="fc:frame:button:1" content="⬅️ Previous" />
 			<meta property="fc:frame:button:2" content="➡️ Next" />
 			<meta property="fc:frame:button:3" content="🎲 Random" />
 			<meta property="fc:frame:button:4" content="🎨 2D/Pixel" />
-			<meta property="fc:frame:post_url" content="https://hyperloot-frame-preview-test.vercel.app/api/preview?type=${imageType}&id=${tokenID}" />
+			<meta property="fc:frame:post_url" content="${config.public.domain}/api/preview?type=${imageType}&id=${tokenID}" />
 		</head>
 		</html>
 	`, {

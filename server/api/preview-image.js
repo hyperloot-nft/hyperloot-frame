@@ -10,21 +10,36 @@ export default defineEventHandler(async (event) => {
 	const tokenID = query.id;
 	const imageType = query.type;
 
-	let fileType = 'jpg';
-	if (imageType === 'pfp') {
-		fileType = 'png';
+	let fileType = 'png';
+	let backgroundHtml = '';
+	if (imageType === 'nft') {
+		fileType = 'jpg';
+		backgroundHtml = `<img src="http://images.hyperlootproject.com/${imageType}/${tokenID}.${fileType}"
+				style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: blur(40px) brightness(80%);">
+		`;
+	} else if (imageType === 'pixel') {
+		const bgRandom = Math.floor(Math.random() * 4) + 1;
+		backgroundHtml = `<img src="${config.public.domain}/img/pixel-bg-${bgRandom}.png" 
+			style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: blur(20px) brightness(80%);">
+		`;
+	} else if (imageType === 'pfp') {
+		const bgRandom = Math.floor(Math.random() * 9);
+		backgroundHtml = `<img src="${config.public.domain}/img/pfp-bg-${bgRandom}.jpg" 
+			style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; z-index: -1; filter: blur(10px) brightness(80%);">
+		`;
 	}
 
-	const frameImage = html`
+	let frameImage = `
 		<div style="display:flex; width:100%; height:100%; background-color:#000;">
-			<img src="http://images.hyperlootproject.com/${imageType}/${tokenID}.${fileType}"
-     			style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: blur(40px) brightness(80%);">
+			${backgroundHtml}
 			<img src="http://images.hyperlootproject.com/${imageType}/${tokenID}.${fileType}"
 				style="height: 100%; width: 100%; object-fit: contain">
 			<div style="z-index:100; position:absolute; top:20px; right:40px; font-family:'BluuNext-Bold'; font-size: 24px; color:#F3BA14;">#${tokenID}</div>
 			<img src="${config.public.domain}/hyperloot-icon-transparent.png"
 				style="z-index:100; position:absolute; top:22px; left:30px; width:5%;">
 		</div>`;
+
+	frameImage = html(frameImage);
 
 	const fontResponse = await fetch(`${config.public.domain}/BluuNext-Bold.otf`);
 	const fontData = await fontResponse.arrayBuffer();

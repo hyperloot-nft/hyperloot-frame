@@ -49,7 +49,7 @@ useHead({
 		{ property: 'fc:frame:button:1', content: '⬅️ Previous' },
 		{ property: 'fc:frame:button:2', content: '➡️ Next' },
 		{ property: 'fc:frame:button:3', content: '🎲 Random' },
-		{ property: 'fc:frame:button:4', content: '🎨 2D/Pixel' },
+		{ property: 'fc:frame:button:4', content: '🎨 2D/PFP/Pixel' },
 		{ property: 'fc:frame:post_url', content: `${config.public.domain}/api/preview` },
 	],
 });
