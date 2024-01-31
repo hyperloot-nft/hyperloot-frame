@@ -65,7 +65,7 @@ export default defineEventHandler(async (event) => {
 			<meta property="fc:frame:button:2" content="➡️ Next" />
 			<meta property="fc:frame:button:3" content="🎲 Random" />
 			<meta property="fc:frame:button:4" content="🎨 2D/Pixel" />
-			<meta property="fc:post_url" content="https://hyperloot-frame-preview-test.vercel.app/api/preview?type=${imageType}&id=${tokenID}" />
+			<meta property="fc:frame:post_url" content="https://hyperloot-frame-preview-test.vercel.app/api/preview?type=${imageType}&id=${tokenID}" />
 		</head>
 		</html>
 	`, {
