@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 	let imageType = 'nft';
 
 	if (query.id) {
-		tokenID = query.id;
+		tokenID = parseInt(query.id);
 	}
 
 	if (query.imageType) {
