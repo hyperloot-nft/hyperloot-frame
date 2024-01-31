@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
 				style="height: 100%; width: 100%; object-fit: contain">
 			<div style="z-index:100; position:absolute; top:20px; right:40px; font-family:'BluuNext-Bold'; font-size: 24px; color:#F3BA14;">#${tokenID}</div>
 			<img src="${config.public.domain}/hyperloot-icon-transparent.png"
-				style="z-index:100; position:absolute; top:22px; left:30px; width:5%;">
+				style="z-index:100; position:absolute; top:22px; left:35px; width:5%;">
 		</div>`;
 
 	frameImage = html(frameImage);
